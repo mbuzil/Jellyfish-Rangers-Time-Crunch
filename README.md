@@ -1,27 +1,23 @@
 # Project Name
-MSCH-C220 Game Jam - Off the Clock!, April 2022
+MSCH-C220 Game Jam, April 2022
 
 ## Theme
-We used the theme of Time Crunch as a way to make clock based enemies and bosses that you beat up to escape the time crunch.
+How you thought about or interpreted the theme
 
 ## Game Play
-The objective of the game is meant to be to make it to the end of every level, and beat the God of Time to get away from the Time Crunch you're under
-Jump, hit, and run through each level and boss to make it through the end!
+Objective
+Game-play instructions
 
 ## Impediments
-We ran into a bit of problem where the scenes for Levels 1 and 2 wouldn't open, and we redid the levels and fixed the issue.
+Struggles or surprises you encountered during the development of the game
 
 ## Implementation
-Combat, a timer system
+Features
+Assets, or resources used
 
 ## References
-None
 
 ## Future Development
-None
 
 # Created by: Jellyfish Rangers
-Max Moreno - Sprite Design and animation
-Ross Gelick - Audio
-William Sandage - Level design
-Michael Buzil - Programming
+List of group members (and contributions)

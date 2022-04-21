@@ -1,17 +1,18 @@
 extends KinematicBody2D
 var velocity = Vector2.ZERO
-var speed = 10.0
+var speed = 500.0
 var damage = 1
-onready var Player = get_node_or_null("/root/Level3/Player_Container/Player")
+
 onready var Explosion = load("res://Effects/Explosion.tscn")
 var Effects = null
+
 func _ready():
 	velocity = Vector2(0,-speed).rotated(rotation)
 
 func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector2.ZERO)
-	position.x = position.x-speed
-	position.y = 525
+	position.x = wrapf(position.x, 0, Global.VP.x)
+	position.y = wrapf(position.y, 0, Global.VP.y)
 	
 
 
