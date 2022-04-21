@@ -26,6 +26,7 @@ scale = Vector2( 2.15625, 2.375 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.12
 autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
