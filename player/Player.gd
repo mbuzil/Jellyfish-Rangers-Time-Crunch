@@ -7,7 +7,7 @@ var velocity = Vector2.ZERO
 var jump_power = Vector2.ZERO
 var direction = 1
 var atking = false
-var health = 10
+var health = 20
 
 export var gravity = Vector2(0,30)
 
@@ -41,7 +41,7 @@ func _physics_process(_delta):
 	if direction > 0 and $AnimatedSprite.flip_h: $AnimatedSprite.flip_h = false
 	
 	if position.y > Global.death_zone:
-		queue_free()
+		die()
 		
 
 func is_moving():

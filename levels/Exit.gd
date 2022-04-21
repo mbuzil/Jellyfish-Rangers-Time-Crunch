@@ -12,4 +12,10 @@ func _on_Exit_body_entered(body):
 		if name == "Exit_to_5":
 			var _target = get_tree().change_scene("res://Levels/Level5.tscn")
 		if name == "Exit_to_6":
-			var _target = get_tree().change_scene("res://Levels/Level6.tscn")
+			var _target = get_tree().change_scene("res://Levels/Level6.tscn")\
+			
+
+
+
+func _on_FallDeath_body_entered(body):
+	var _target = get_tree().change_scene("res://Menu/Death")

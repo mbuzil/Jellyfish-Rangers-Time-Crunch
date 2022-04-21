@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/It's Time To Run.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
-[ext_resource path="res://Assets/portal_end.png" type="Texture" id=3]
+[ext_resource path="res://Assets/elevator.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Exit.gd" type="Script" id=4]
 [ext_resource path="res://Levels/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Spawn.gd" type="Script" id=6]
@@ -144,19 +144,20 @@ texture = ExtResource( 11 )
 script = ExtResource( 6 )
 
 [node name="Exit_to_4" type="Area2D" parent="."]
-position = Vector2( -2321, -80 )
+position = Vector2( -2074, 50 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Exit_to_4"]
-position = Vector2( 3643.56, 493.357 )
+position = Vector2( 3643.28, 492.678 )
+scale = Vector2( 1.00875, 1.0212 )
 texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit_to_4"]
 position = Vector2( 3643.56, 493.357 )
-polygon = PoolVector2Array( 12, -48.7, 23, -35.7, 23, -32.4, 25, -27.9, 25, 27.1, 22.6, 37, 21, 37, 11.5, 50, -11.6, 50, -23, 35.7, -23, 32.4, -25, 27.9, -25, -26.1, -19.4, -42, -17.8, -42, -10, -49.8, 12, -50 )
+polygon = PoolVector2Array( 32.4399, -33.357, 32.4399, 32.643, -32.5601, 32.643, -32.5601, -33.357 )
 
 [node name="Player_Container" type="Node2D" parent="."]
 position = Vector2( -39, 338 )
