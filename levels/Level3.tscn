@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/floor.png" type="Texture" id=9]
 [ext_resource path="res://Assets/wall.png" type="Texture" id=10]
 [ext_resource path="res://Assets/boss door.png" type="Texture" id=11]
+[ext_resource path="res://Assets/It's Time To Run.ogg" type="AudioStream" id=12]
 
 [sub_resource type="TileSet" id=21]
 0/name = "background wall.png 0"
@@ -235,5 +236,9 @@ format = 1
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 process_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]
