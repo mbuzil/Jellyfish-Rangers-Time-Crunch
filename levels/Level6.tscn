@@ -19,6 +19,7 @@
 [ext_resource path="res://Levels/Portal BL.gd" type="Script" id=17]
 [ext_resource path="res://Levels/Portal TL.gd" type="Script" id=18]
 [ext_resource path="res://Levels/Portal BR.gd" type="Script" id=19]
+[ext_resource path="res://Levels/Level6.gd" type="Script" id=20]
 
 [sub_resource type="TileSet" id=21]
 0/name = "clock 3 background.png 0"
@@ -276,13 +277,11 @@ extents = Vector2( 12.9188, 15.5787 )
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 11.3185, 8.91204 )
 
-[sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 10, 17.7215 )
-
-[sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 10, 32.4783 )
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 10, 32.287 )
 
 [node name="Level6" type="Node2D"]
+script = ExtResource( 20 )
 
 [node name="Background" type="TileMap" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
@@ -384,47 +383,34 @@ autoplay = true
 position = Vector2( 793, 251 )
 scale = Vector2( 3, 3 )
 
-[node name="Top Left" type="Sprite" parent="."]
+[node name="TopLeft" type="Sprite" parent="."]
 visible = false
 position = Vector2( 481, 401 )
 rotation = 0.984366
 scale = Vector2( 5.02344, 11.858 )
 texture = ExtResource( 16 )
 
-[node name="Area2D" type="Area2D" parent="Top Left"]
+[node name="Area2D" type="Area2D" parent="TopLeft"]
 
-[node name="TL" type="CollisionShape2D" parent="Top Left/Area2D"]
+[node name="TL" type="CollisionShape2D" parent="TopLeft/Area2D"]
 position = Vector2( -1.69547, 18.9903 )
 rotation = 1.49012e-08
 scale = Vector2( 1, 1 )
 shape = SubResource( 26 )
 disabled = true
 
-[node name="Top Right" type="Sprite" parent="."]
+[node name="TopRight" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1128.54, 392.7 )
 rotation = -0.98262
 scale = Vector2( 5.39657, 12.09 )
 texture = ExtResource( 16 )
 
-[node name="Area2D" type="Area2D" parent="Top Right"]
+[node name="Area2D" type="Area2D" parent="TopRight"]
 
-[node name="TR" type="CollisionShape2D" parent="Top Right/Area2D"]
+[node name="TR" type="CollisionShape2D" parent="TopRight/Area2D"]
 position = Vector2( -1.3185, 23.5713 )
 shape = SubResource( 27 )
-disabled = true
-
-[node name="Middle" type="Sprite" parent="."]
-visible = false
-position = Vector2( 799, 644.25 )
-scale = Vector2( 4, 14.3047 )
-texture = ExtResource( 16 )
-
-[node name="Area2D" type="Area2D" parent="Middle"]
-
-[node name="M" type="CollisionShape2D" parent="Middle/Area2D"]
-position = Vector2( 0, 14.4184 )
-shape = SubResource( 28 )
 disabled = true
 
 [node name="Bottom" type="Sprite" parent="."]
@@ -437,16 +423,24 @@ texture = ExtResource( 16 )
 [node name="Area2D" type="Area2D" parent="Bottom"]
 
 [node name="B" type="CollisionShape2D" parent="Bottom/Area2D"]
+position = Vector2( 0, 0.143497 )
 rotation = -3.55271e-15
-shape = SubResource( 29 )
+shape = SubResource( 31 )
 disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.5
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Portal/Portal BL/Area2D" to="Portal/Portal BL" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Portal/Portal TL/Area2D" to="Portal/Portal TL" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Portal/Portal TR/Area2D" to="Portal/Portal TR" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Portal/Portal BR/Area2D" to="Portal/Portal BR" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]
+[connection signal="body_entered" from="TopLeft/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="TopRight/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Bottom/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
