@@ -181,6 +181,7 @@ format = 1
 tile_data = PoolIntArray( 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
+current = false
 process_mode = 0
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/clock 9 background.png" type="Texture" id=15]
 [ext_resource path="res://Assets/clock wall.png" type="Texture" id=16]
 [ext_resource path="res://Assets/clock 12 background.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Fear.ogg" type="AudioStream" id=18]
 
 [sub_resource type="TileSet" id=21]
 0/name = "background wall.png 0"
@@ -369,5 +370,9 @@ format = 1
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 process_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+autoplay = true
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]

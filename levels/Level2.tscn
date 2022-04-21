@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=24 format=2]
+=======
+[gd_scene load_steps=23 format=2]
+>>>>>>> 368b4f34788148dbca2e4cffa043aca0e60ec4c7
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -13,8 +17,12 @@
 [ext_resource path="res://Assets/downstairs.png" type="Texture" id=11]
 [ext_resource path="res://Assets/boss door.png" type="Texture" id=12]
 [ext_resource path="res://Assets/floor.png" type="Texture" id=13]
+<<<<<<< HEAD
 [ext_resource path="res://Assets/Desk.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Window.png" type="Texture" id=15]
+=======
+[ext_resource path="res://Assets/Center Of The Earth.ogg" type="AudioStream" id=14]
+>>>>>>> 368b4f34788148dbca2e4cffa043aca0e60ec4c7
 
 [sub_resource type="TileSet" id=21]
 0/name = "background wall.png 0"
@@ -271,5 +279,9 @@ tile_data = PoolIntArray( 589832, 1, 0, 786490, 1, 0, 917529, 1, 0, 917531, 1, 0
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 process_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+autoplay = true
 
 [connection signal="body_entered" from="Exit_to_3" to="Exit_to_3" method="_on_Exit_body_entered"]
