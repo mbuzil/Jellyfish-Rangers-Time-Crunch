@@ -395,7 +395,6 @@ texture = ExtResource( 16 )
 [node name="TL" type="CollisionShape2D" parent="TopLeft/Area2D"]
 position = Vector2( -1.69547, 18.9903 )
 rotation = 1.49012e-08
-scale = Vector2( 1, 1 )
 shape = SubResource( 26 )
 disabled = true
 

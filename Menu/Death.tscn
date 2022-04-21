@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Menu/Death.gd" type="Script" id=1]
 [ext_resource path="res://Assets/wall.png" type="Texture" id=2]
+[ext_resource path="res://Assets/deathscreen.png" type="Texture" id=3]
 
 [node name="Death" type="Control"]
 anchor_right = 1.0
@@ -22,30 +23,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 760.0
-margin_top = 400.0
-margin_right = 1148.0
-margin_bottom = 639.0
-text = "YOU DIED"
-align = 1
-valign = 1
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 431, 294 )
+scale = Vector2( 0.6405, 0.567 )
+texture = ExtResource( 3 )
 
 [node name="Play" type="Button" parent="."]
-margin_left = 898.0
-margin_top = 557.0
-margin_right = 1012.0
-margin_bottom = 606.0
+margin_left = 377.0
+margin_top = 444.0
+margin_right = 491.0
+margin_bottom = 493.0
 text = "Play Again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 897.0
-margin_top = 623.0
-margin_right = 1011.0
-margin_bottom = 672.0
+margin_left = 374.0
+margin_top = 504.0
+margin_right = 488.0
+margin_bottom = 553.0
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false

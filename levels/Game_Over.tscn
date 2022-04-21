@@ -2,10 +2,7 @@
 
 [ext_resource path="res://Assets/Thruster-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Levels/Game_Over.gd" type="Script" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 60
-font_data = ExtResource( 1 )
+[ext_resource path="res://Assets/Untitled-4.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -19,27 +16,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -44.0
-margin_top = -26.0
-margin_right = 1052.0
-margin_bottom = 642.0
-color = Color( 0.203922, 0.227451, 0.25098, 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_right = 1024.0
-margin_bottom = 246.0
-custom_fonts/font = SubResource( 1 )
-text = "Congratulations! 
-You win!"
-align = 1
-valign = 1
+[node name="Untitled-4" type="Sprite" parent="."]
+position = Vector2( 508, 494 )
+texture = ExtResource( 3 )
 
 [node name="Play_Again" type="Button" parent="."]
-margin_left = 412.0
-margin_top = 300.0
-margin_right = 612.0
-margin_bottom = 340.0
+margin_left = 736.0
+margin_top = 435.0
+margin_right = 936.0
+margin_bottom = 475.0
 focus_neighbour_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 custom_fonts/font = SubResource( 2 )
@@ -49,10 +34,10 @@ __meta__ = {
 }
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 412.0
-margin_top = 360.0
-margin_right = 612.0
-margin_bottom = 400.0
+margin_left = 717.0
+margin_top = 514.0
+margin_right = 917.0
+margin_bottom = 554.0
 focus_neighbour_top = NodePath("../Play_Again")
 focus_previous = NodePath("../Play_Again")
 custom_fonts/font = SubResource( 2 )
