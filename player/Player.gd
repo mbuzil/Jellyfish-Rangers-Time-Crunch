@@ -89,5 +89,5 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Area2D_body_entered(body):
-	if atking == true and body.name != "Bullet" and get_tree().current_scene.name != "Level6":
+	if atking == true and get_tree().current_scene.name != "Level6" and body.name == "Grunt" or body.name == "Miniboss":
 		body.damage(1)
