@@ -21,7 +21,8 @@ export var max_jump = 1200
 export var leap_speed = 100
 export var max_leap = 1200
 
-
+var case = preload("res://Player/Briefcase.tscn")
+export var bullet_speed = 500
 var moving = false
 var is_jumping = false
 
@@ -29,6 +30,14 @@ var is_jumping = false
 func _ready():
 	pass
 
+func _process(delta):
+	if get_tree().current_scene.name == "Level6":
+		if Input.is_action_pressed("attack"):
+			var bullet_instance = case.instance()
+			bullet_instance.position = get_global_position()
+			bullet_instance.rotation_degrees = rotation_degrees
+			#bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
+			get_tree().get_root().add_child(bullet_instance)
 
 func _physics_process(_delta):
 	velocity.x = clamp(velocity.x,-max_move,max_move)
@@ -80,5 +89,5 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Area2D_body_entered(body):
-	if atking == true and body.name != "Bullet":
+	if atking == true and get_tree().current_scene.name != "Level6" and body.name == "Grunt" or body.name == "Miniboss":
 		body.damage(1)

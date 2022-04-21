@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/sketch.png" type="Texture" id=2]
+
+[node name="Menu" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 524, 329 )
+scale = Vector2( 0.816858, 0.674897 )
+texture = ExtResource( 2 )
+
+[node name="Play" type="Button" parent="."]
+margin_left = 212.0
+margin_top = 400.0
+margin_right = 299.0
+margin_bottom = 448.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 211.0
+margin_top = 472.0
+margin_right = 301.0
+margin_bottom = 518.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
