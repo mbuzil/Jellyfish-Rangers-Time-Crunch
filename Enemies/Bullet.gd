@@ -2,7 +2,6 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 var speed = 10.0
 var damage = 1
-onready var Player = get_node_or_null("/root/Level3/Player_Container/Player")
 onready var Explosion = load("res://Effects/Explosion.tscn")
 var Effects = null
 func _ready():
