@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var health = 10
+var health = 8
 
 var Effects = null
 onready var Bullet = load("res://Enemies/Bullet.tscn")

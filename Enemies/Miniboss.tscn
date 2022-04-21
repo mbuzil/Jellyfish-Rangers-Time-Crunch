@@ -74,7 +74,7 @@ position = Vector2( -2.5, 12 )
 shape = SubResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 44, 135, 18, 135, -54, 133, -54, 77, -44, 54, -58, 15, -57, -18, -35, -34, -53, -55, -58, -130, -16, -109, 25, -102, 40, -91, 38, -55, 22, -27, 36, -19, 59, -12, 57, 22, 43, 50, 29, 59, 35, 110 )
+polygon = PoolVector2Array( 44, 135, 18, 135, -54, 133, -54, 77, -44, 54, -58, 15, -57, -18, -35, -34, -53, -55, -58, -115, -16, -109, 25, -102, 40, -91, 38, -55, 22, -27, 36, -19, 59, -12, 57, 22, 43, 50, 29, 59, 35, 110 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
