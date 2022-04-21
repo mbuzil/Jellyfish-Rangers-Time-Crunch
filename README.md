@@ -19,5 +19,5 @@ Assets, or resources used
 
 ## Future Development
 
-# Created by: Group Name
+# Created by: Jellyfish Rangers
 List of group members (and contributions)
