@@ -7,7 +7,7 @@ var velocity = Vector2.ZERO
 var jump_power = Vector2.ZERO
 var direction = 1
 var atking = false
-var health = 6
+var health = 10
 
 export var gravity = Vector2(0,30)
 
@@ -80,5 +80,5 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Area2D_body_entered(body):
-	if atking == true:
+	if atking == true and body.name != "Bullet":
 		body.damage(1)
