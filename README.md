@@ -9,7 +9,6 @@ The objective of the game is meant to be to make it to the end of every level, a
 
 ## Impediments
 We ran into a bit of problem where the scenes for Levels 1 and 2 wouldn't open, and we redid the levels and fixed the issue.
-
 ## Implementation
 Combat, a timer system
 
