@@ -16,6 +16,7 @@ Features
 Assets, or resources used
 
 ## References
+https://patrickdearteaga.com/horror-music/
 
 ## Future Development
 
