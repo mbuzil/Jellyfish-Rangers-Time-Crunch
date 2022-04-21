@@ -35,6 +35,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("attack"):
 		set_animation("Attacking")
 		atking = true
+		$Area2D/Atk.set_deferred("disabled", false)
 
 	if direction < 0 and not $AnimatedSprite.flip_h: $AnimatedSprite.flip_h = true
 	if direction > 0 and $AnimatedSprite.flip_h: $AnimatedSprite.flip_h = false
@@ -63,7 +64,7 @@ func set_animation(anim):
 	else: $AnimatedSprite.play()
 
 func die():
-	queue_free()
+	var _target = get_tree().change_scene("res://Menu/Death.tscn")
 
 func damage(d):
 	health -= d
@@ -74,4 +75,10 @@ func _on_AnimatedSprite_animation_finished():
 	if atking == true:
 		set_animation("Idle")
 		atking = false
+		$Area2D/Atk.set_deferred("disabled", true)
 
+
+
+func _on_Area2D_body_entered(body):
+	if atking == true:
+		body.damage(1)
