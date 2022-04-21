@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-var health = 20
+var health = 250
 onready var Explosion = load("res://Effects/Explosion.tscn")
 var Effects = null
 
