@@ -30,7 +30,3 @@ func _on_Timer_timeout():
 		Effects.add_child(bullet)
 
 
-func _on_Area2D_body_entered(body):
-	if body.name == "Player":
-		body.damage(1)
-		damage(1)

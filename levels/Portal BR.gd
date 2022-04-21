@@ -18,5 +18,5 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
-		body.position.y = body.position.y+350
-		body.position.x = body.position.x+50
+		body.position.y = body.position.y-400
+		body.position.x = body.position.x-50

@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
 [ext_resource path="res://Assets/portal_end.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Exit.gd" type="Script" id=4]
 [ext_resource path="res://Levels/Camera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/Spawn.gd" type="Script" id=6]
+[ext_resource path="res://Levels/Portal TR.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Tiles.png" type="Texture" id=7]
 [ext_resource path="res://Assets/clock 9 background.png" type="Texture" id=8]
 [ext_resource path="res://Assets/clock 12 background.png" type="Texture" id=9]
@@ -14,6 +14,11 @@
 [ext_resource path="res://Assets/clock 3 background.png" type="Texture" id=12]
 [ext_resource path="res://Assets/clock floor.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Let's Play With The Demon.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Enemies/FinalBoss.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Time Beam.png" type="Texture" id=16]
+[ext_resource path="res://Levels/Portal BL.gd" type="Script" id=17]
+[ext_resource path="res://Levels/Portal TL.gd" type="Script" id=18]
+[ext_resource path="res://Levels/Portal BR.gd" type="Script" id=19]
 
 [sub_resource type="TileSet" id=21]
 0/name = "clock 3 background.png 0"
@@ -72,6 +77,10 @@
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
+
+[sub_resource type="CapsuleShape2D" id=30]
+radius = 23.0
+height = 58.0
 
 [sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 63, 64, 0, 64, 0, 1, 63, 1 )
@@ -261,7 +270,19 @@ points = PoolVector2Array( 64, 63, 0, 63, 0, 0, 64, 0 )
 5/shapes = [  ]
 5/z_index = 0
 
-[node name="Game" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 12.9188, 15.5787 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 11.3185, 8.91204 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 10, 17.7215 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 10, 32.4783 )
+
+[node name="Level6" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
@@ -270,12 +291,47 @@ collision_layer = 0
 collision_mask = 0
 format = 1
 
-[node name="Spawn" type="Node2D" parent="."]
+[node name="Portal" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Spawn"]
-position = Vector2( 200.778, 201.832 )
+[node name="Portal BL" type="Sprite" parent="Portal"]
+position = Vector2( 159, 905 )
+texture = ExtResource( 1 )
+script = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Portal/Portal BL"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Portal BL/Area2D"]
+shape = SubResource( 30 )
+
+[node name="Portal TL" type="Sprite" parent="Portal"]
+position = Vector2( 152, 527 )
+texture = ExtResource( 1 )
+script = ExtResource( 18 )
+
+[node name="Area2D" type="Area2D" parent="Portal/Portal TL"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Portal TL/Area2D"]
+shape = SubResource( 30 )
+
+[node name="Portal TR" type="Sprite" parent="Portal"]
+position = Vector2( 1444, 527 )
 texture = ExtResource( 1 )
 script = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="Portal/Portal TR"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Portal TR/Area2D"]
+shape = SubResource( 30 )
+
+[node name="Portal BR" type="Sprite" parent="Portal"]
+position = Vector2( 1444, 913 )
+texture = ExtResource( 1 )
+script = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Portal/Portal BR"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Portal BR/Area2D"]
+shape = SubResource( 30 )
 
 [node name="Exit_to_4" type="Area2D" parent="."]
 script = ExtResource( 4 )
@@ -295,7 +351,7 @@ polygon = PoolVector2Array( 12, -48.7, 23, -35.7, 23, -32.4, 25, -27.9, 25, 27.1
 script = ExtResource( 2 )
 
 [node name="Backup_Camera" type="Camera2D" parent="Player_Container"]
-position = Vector2( 200, 200 )
+position = Vector2( 790, 366 )
 limit_left = 0
 limit_right = 3760
 limit_bottom = 600
@@ -306,7 +362,7 @@ limit_bottom = 600
 tile_set = SubResource( 24 )
 collision_friction = 0.0
 format = 1
-tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 22, 1, 0, 23, 4, 0, 24, 4, 0, 65536, 4, 0, 65537, 1, 0, 65538, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 4, 0, 131072, 1, 0, 131073, 1, 0, 131095, 1, 0, 131096, 4, 0, 196608, 4, 0, 196609, 1, 0, 196631, 1, 0, 196632, 4, 0, 262144, 4, 0, 262145, 1, 0, 262167, 1, 0, 262168, 4, 0, 327680, 4, 0, 327681, 1, 0, 327703, 1, 0, 327704, 4, 0, 393216, 4, 0, 393217, 1, 0, 393239, 1, 0, 393240, 4, 0, 458752, 1, 0, 458753, 1, 0, 458775, 1, 0, 458776, 4, 0, 524288, 1, 0, 524289, 1, 0, 524311, 1, 0, 524312, 4, 0, 589824, 4, 0, 589825, 1, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 1, 0, 589848, 4, 0, 655360, 4, 0, 655361, 1, 0, 655383, 1, 0, 655384, 4, 0, 720896, 4, 0, 720897, 1, 0, 720919, 1, 0, 720920, 4, 0, 786432, 1, 0, 786433, 1, 0, 786455, 1, 0, 786456, 4, 0, 851968, 1, 0, 851969, 1, 0, 851991, 1, 0, 851992, 4, 0, 917504, 4, 0, 917505, 1, 0, 917527, 1, 0, 917528, 4, 0, 983040, 4, 0, 983041, 1, 0, 983063, 1, 0, 983064, 4, 0, 1048576, 1, 0, 1048577, 1, 0, 1048599, 1, 0, 1048600, 4, 0, 1114114, 2, 0, 1114115, 2, 0, 1114116, 2, 0, 1114117, 2, 0, 1114118, 2, 0, 1114119, 2, 0, 1114120, 2, 0, 1114121, 2, 0, 1114122, 2, 0, 1114123, 2, 0, 1114124, 2, 0, 1114125, 2, 0, 1114126, 2, 0, 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1114130, 2, 0, 1114131, 2, 0, 1114132, 2, 0, 1114133, 2, 0, 1114134, 2, 0 )
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 22, 1, 0, 23, 4, 0, 24, 4, 0, 65536, 4, 0, 65537, 1, 0, 65538, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 4, 0, 131072, 1, 0, 131073, 1, 0, 131095, 1, 0, 131096, 4, 0, 196608, 4, 0, 196609, 1, 0, 196631, 1, 0, 196632, 4, 0, 262144, 4, 0, 262145, 1, 0, 262167, 1, 0, 262168, 4, 0, 327680, 4, 0, 327681, 1, 0, 327703, 1, 0, 327704, 4, 0, 393216, 4, 0, 393217, 1, 0, 393239, 1, 0, 393240, 4, 0, 458752, 1, 0, 458753, 1, 0, 458775, 1, 0, 458776, 4, 0, 524288, 1, 0, 524289, 1, 0, 524311, 1, 0, 524312, 4, 0, 589824, 4, 0, 589825, 1, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 1, 0, 589848, 4, 0, 655360, 4, 0, 655361, 1, 0, 655383, 1, 0, 655384, 4, 0, 720896, 4, 0, 720897, 1, 0, 720919, 1, 0, 720920, 4, 0, 786432, 1, 0, 786433, 1, 0, 786455, 1, 0, 786456, 4, 0, 851968, 1, 0, 851969, 1, 0, 851991, 1, 0, 851992, 4, 0, 917504, 4, 0, 917505, 1, 0, 917527, 1, 0, 917528, 4, 0, 983040, 4, 0, 983041, 1, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 1, 0, 983064, 4, 0 )
 
 [node name="Foreground" type="TileMap" parent="."]
 tile_set = SubResource( 20 )
@@ -324,4 +380,73 @@ limit_smoothed = true
 stream = ExtResource( 14 )
 autoplay = true
 
+[node name="FinalBoss" parent="." instance=ExtResource( 15 )]
+position = Vector2( 793, 251 )
+scale = Vector2( 3, 3 )
+
+[node name="Top Left" type="Sprite" parent="."]
+visible = false
+position = Vector2( 481, 401 )
+rotation = 0.984366
+scale = Vector2( 5.02344, 11.858 )
+texture = ExtResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="Top Left"]
+
+[node name="TL" type="CollisionShape2D" parent="Top Left/Area2D"]
+position = Vector2( -1.69547, 18.9903 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+shape = SubResource( 26 )
+disabled = true
+
+[node name="Top Right" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1128.54, 392.7 )
+rotation = -0.98262
+scale = Vector2( 5.39657, 12.09 )
+texture = ExtResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="Top Right"]
+
+[node name="TR" type="CollisionShape2D" parent="Top Right/Area2D"]
+position = Vector2( -1.3185, 23.5713 )
+shape = SubResource( 27 )
+disabled = true
+
+[node name="Middle" type="Sprite" parent="."]
+visible = false
+position = Vector2( 799, 644.25 )
+scale = Vector2( 4, 14.3047 )
+texture = ExtResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="Middle"]
+
+[node name="M" type="CollisionShape2D" parent="Middle/Area2D"]
+position = Vector2( 0, 14.4184 )
+shape = SubResource( 28 )
+disabled = true
+
+[node name="Bottom" type="Sprite" parent="."]
+visible = false
+position = Vector2( 801, 900 )
+rotation = 1.5708
+scale = Vector2( 7.20313, 20.9063 )
+texture = ExtResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="Bottom"]
+
+[node name="B" type="CollisionShape2D" parent="Bottom/Area2D"]
+rotation = -3.55271e-15
+shape = SubResource( 29 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+autostart = true
+
+[connection signal="body_entered" from="Portal/Portal BL/Area2D" to="Portal/Portal BL" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Portal/Portal TL/Area2D" to="Portal/Portal TL" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Portal/Portal TR/Area2D" to="Portal/Portal TR" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Portal/Portal BR/Area2D" to="Portal/Portal BR" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]
